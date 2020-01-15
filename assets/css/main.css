@@ -487,6 +487,10 @@ a:hover {
   }
 }
 
+.currentLevel.highlight {
+  border: 2px dashed red;
+}
+
 .section-controls::after {
   content: "";
   flex: 0 1 48%;

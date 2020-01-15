@@ -133,3 +133,19 @@ function Tamagotchi() {
 }
 
 const leah = new Tamagotchi();
+
+let currentStat = document.querySelectorAll(".currentLevel");
+
+// function highlight() {
+//   console.log("highlight fx");
+
+//   for (let i = 0; i < currentStat.length; i++) {
+//     currentStat[i].classList.add("highlight");
+//   }
+// }
+
+// const highlightTimer = setTimeout(highlight, 500);
+
+// setTimeout(() => {
+//   clearTimeout(highlightTimer);
+// }, 1000);
