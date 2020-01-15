@@ -1,0 +1,23 @@
+.section-controls::after {
+  content: "";
+  flex: 0 1 48%;
+  margin: 5px 0.5%;
+
+  @media (min-width: 551px) {
+    flex: 0 1 24%;
+    margin: 5px 0.25%;
+    max-width: 250px;
+  }
+}
+
+.section-controls .controlButton {
+  display: flex;
+  flex: 0 1 48%;
+  margin: 5px 0.5%;
+
+  @media (min-width: 551px) {
+    flex: 0 1 24%;
+    margin: 5px 0.25%;
+    max-width: 250px;
+  }
+}

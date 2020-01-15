@@ -1,0 +1,20 @@
+.containerStats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tamagotchiTrait__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex: 0 48%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 551px) {
+    flex: 0 32%;
+  }
+}
