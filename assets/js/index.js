@@ -132,4 +132,4 @@ function Tamagotchi() {
   buttonWatchTv.addEventListener("click", this.walk);
 }
 
-// const leah = new tamagotchi();
+const leah = new Tamagotchi();
