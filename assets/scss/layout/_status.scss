@@ -1,0 +1,16 @@
+.tamagotchiStatus {
+  background-color: #ddd;
+  outline: 1px solid #bbb;
+  padding: 5px 10px;
+  min-height: 118px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  @media (min-width: 801px) {
+    flex: 1;
+  }
+}
+
+.tamagotchiStatus p {
+  font-family: monospace;
+}

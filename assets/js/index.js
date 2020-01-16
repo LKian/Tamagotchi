@@ -1,5 +1,3 @@
-console.log("Leah");
-
 let levelHappiness = document.querySelector(".currentLevel--happiness");
 let levelHunger = document.querySelector(".currentLevel--hunger");
 let levelEnergy = document.querySelector(".currentLevel--energy");
@@ -17,6 +15,8 @@ let buttonNaptime = document.querySelector(".controlButton.button--naptime");
 let buttonBedtime = document.querySelector(".controlButton.button--bedtime");
 let buttonDinner = document.querySelector(".controlButton.button--dinner");
 
+let status = document.querySelector(".tamagotchiStatus");
+
 function Tamagotchi() {
   this.hunger = Math.floor(Math.random() * 10);
   this.energy = Math.floor(Math.random() * 10);
@@ -32,6 +32,30 @@ function Tamagotchi() {
       currentStat.length -
       1
   );
+
+  if (this.bladder >= 7) {
+    console.log("Take me to the bathroom before I pee on your floor!");
+    statusText.innerHTML += status.appendChild(statusText);
+    ("Take me to the bathroom before I pee on your floor!");
+  }
+
+  if (this.hunger <= 3) {
+    var statusText = document.createElement("p");
+    statusText.innerHTML += "Feed me, peasant!";
+    status.appendChild(statusText);
+  }
+
+  if (this.hygiene <= 3) {
+    var statusText = document.createElement("p");
+    statusText.innerHTML += "I smell!  Bathe me";
+    status.appendChild(statusText);
+  }
+
+  if (this.energy <= 3) {
+    var statusText = document.createElement("p");
+    statusText.innerHTML += "Tuck me in or I'll haunt your dreams";
+    status.appendChild(statusText);
+  }
 
   this.feedSnack = () => {
     this.hunger++;
@@ -136,16 +160,12 @@ function Tamagotchi() {
 let currentStat = document.querySelectorAll(".currentLevel");
 
 function addHighlight() {
-  console.log("add highlight");
-
   for (let i = 0; i < currentStat.length; i++) {
     currentStat[i].classList.add("highlight");
   }
 }
 
 function removeHighlight() {
-  console.log("removing highlight");
-
   for (let i = 0; i < currentStat.length; i++) {
     currentStat[i].classList.remove("highlight");
   }

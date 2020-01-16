@@ -411,13 +411,18 @@ template {
 }
 
 .section {
-  padding: 25px 0;
+  padding: 10px;
+}
+@media (min-width: 551px) {
+  .section {
+    padding: 20px 10px;
+  }
 }
 
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 25px 0;
+  padding: 0;
 }
 
 .section-subheading {
@@ -465,6 +470,24 @@ a:hover {
   text-decoration: underline;
 }
 
+.tamagotchiStatus {
+  background-color: #ddd;
+  outline: 1px solid #bbb;
+  padding: 5px 10px;
+  min-height: 118px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+@media (min-width: 801px) {
+  .tamagotchiStatus {
+    flex: 1;
+  }
+}
+
+.tamagotchiStatus p {
+  font-family: monospace;
+}
+
 .containerStats {
   display: flex;
   flex-wrap: wrap;
@@ -473,16 +496,22 @@ a:hover {
 
 .tamagotchiTrait__container {
   display: flex;
+  flex: 3;
+  flex-wrap: wrap;
+}
+
+.tamagotchiTrait {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   flex: 0 48%;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 551px) {
-  .tamagotchiTrait__container {
+  .tamagotchiTrait {
     flex: 0 32%;
   }
 }
@@ -524,7 +553,7 @@ a:hover {
 }
 
 footer {
-  background-color: #00a2e0;
+  background-color: #000000;
 }
 
 .footer-container {
@@ -544,8 +573,13 @@ footer {
 .footer-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+}
+@media (min-width: 801px) {
+  .footer-left {
+    align-items: flex-start;
+  }
 }
 
 .footer-left .company-name {
@@ -605,7 +639,16 @@ footer {
   margin-right: 20px;
 }
 
+.company-branding .icon {
+  display: flex;
+  align-items: center;
+}
+
+.footer i {
+  color: #eaf2ff;
+}
 .footer i:hover, .footer i:focus, .footer i:active {
+  color: #fff;
   text-shadow: 3px 3px 5px #000e14;
   animation: shakeit 1s;
   transition: all 0.5s;
@@ -6497,7 +6540,6 @@ readers do not read off random characters that represent icons */
 }
 .fab {
   font-family: "Font Awesome 5 Brands";
-  color: #fff;
 }
 
 /*!
