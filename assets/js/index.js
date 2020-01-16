@@ -26,22 +26,23 @@ function Tamagotchi() {
   this.happiness = Math.floor(
     (this.hunger +
       this.energy +
-      this.bladder +
+      (10 - this.bladder) +
       this.hygiene +
       this.intelligence) /
-      5
+      currentStat.length -
+      1
   );
 
   this.feedSnack = () => {
     this.hunger++;
-    this.bladder -= 0.5;
+    this.bladder += 0.5;
     levelHunger.innerHTML = this.hunger;
     levelBladder.innerHTML = this.bladder;
   };
 
   this.feedDinner = () => {
     this.hunger = 10;
-    this.bladder -= 4.5;
+    this.bladder += 4.5;
     levelHunger.innerHTML = this.hunger;
     levelBladder.innerHTML = this.bladder;
   };
@@ -92,7 +93,7 @@ function Tamagotchi() {
     this.happiness++;
     this.hygiene -= 3;
     this.hunger -= 2;
-    this.bladder -= 2;
+    this.bladder += 2;
     levelEnergy.innerHTML = this.energy;
     levelHygiene.innerHTML = this.hygiene;
     levelHappiness.innerHTML = this.happiness;
@@ -102,7 +103,7 @@ function Tamagotchi() {
 
   this.bathroom = () => {
     this.hygiene--;
-    this.bladder = 10;
+    this.bladder = 0;
     levelHygiene.innerHTML = this.hygiene;
     levelBladder.innerHTML = this.bladder;
   };
@@ -129,23 +130,28 @@ function Tamagotchi() {
   buttonReadBook.addEventListener("click", this.readBook);
   buttonBathroom.addEventListener("click", this.bathroom);
   buttonShower.addEventListener("click", this.shower);
-  buttonWatchTv.addEventListener("click", this.walk);
+  buttonWalk.addEventListener("click", this.walk);
 }
-
-const leah = new Tamagotchi();
 
 let currentStat = document.querySelectorAll(".currentLevel");
 
-// function highlight() {
-//   console.log("highlight fx");
+function addHighlight() {
+  console.log("add highlight");
 
-//   for (let i = 0; i < currentStat.length; i++) {
-//     currentStat[i].classList.add("highlight");
-//   }
-// }
+  for (let i = 0; i < currentStat.length; i++) {
+    currentStat[i].classList.add("highlight");
+  }
+}
 
-// const highlightTimer = setTimeout(highlight, 500);
+function removeHighlight() {
+  console.log("removing highlight");
 
-// setTimeout(() => {
-//   clearTimeout(highlightTimer);
-// }, 1000);
+  for (let i = 0; i < currentStat.length; i++) {
+    currentStat[i].classList.remove("highlight");
+  }
+}
+
+const highlightTimerAdd = setTimeout(addHighlight, 200);
+const highlightTimerRemove = setTimeout(removeHighlight, 1000);
+
+const leah = new Tamagotchi();
