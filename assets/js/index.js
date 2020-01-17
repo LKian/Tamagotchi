@@ -60,33 +60,18 @@ function Tamagotchi() {
       "Take me to the bathroom before I pee on your floor!";
   };
 
-  this.bathroom = () => {
-    // let limit = 2;
-    if (this.bladder >= 8) {
-      console.log("heeeeeeeere ");
-    }
+  // this.bathroom = () => {
 
-    this.hygiene--;
-    this.bladder = 0;
-    levelHygiene.innerHTML = this.hygiene;
-    levelBladder.innerHTML = this.bladder;
-  };
-
-  // this.shower = () => {
-  //   this.hygiene = 10;
-  //   this.energy--;
+  //   this.hygiene--;
+  //   this.bladder = 0;
   //   levelHygiene.innerHTML = this.hygiene;
-  //   levelEnergy.innerHTML = this.energy;
+  //   levelBladder.innerHTML = this.bladder;
   // };
-  this.updateAllStatuses = () => {
-    nlevelHappiness = this.happiness;
-    nlevelHunger = this.hunger;
-    nlevelEnergy = this.energy;
-    nlevelBladder = this.bladder;
-    nlevelHygiene = this.hygiene;
-    nlevelIntelligence = this.intelligence;
 
-    console.log(nlevelBladder, nlevelHygiene);
+  this.updateAllStatuses = () => {
+    if (this.bladder >= 8) {
+      updateBladder();
+    }
   };
 
   levelHappiness.innerHTML = this.happiness;
@@ -97,8 +82,9 @@ function Tamagotchi() {
   levelIntelligence.innerHTML = this.intelligence;
 
   buttonBathroom.addEventListener("click", () => {
-    this.bathroom, updateAllStatuses();
+    this.bathroom, updateAllStatuses;
   });
+
   buttonSnacktime.addEventListener("click", this.feedSnack);
   buttonDinner.addEventListener("click", this.feedDinner);
   buttonNaptime.addEventListener("click", this.takeNap);
