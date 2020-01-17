@@ -404,6 +404,10 @@ template {
   border-color: #000e14;
 }
 
+.tamagatchiName--greeting span {
+  text-transform: capitalize;
+}
+
 .section,
 .header,
 .footer {
