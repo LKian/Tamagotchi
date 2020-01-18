@@ -15,12 +15,12 @@ let buttonNaptime = document.querySelector(".controlButton.button--naptime");
 let buttonBedtime = document.querySelector(".controlButton.button--bedtime");
 let buttonDinner = document.querySelector(".controlButton.button--dinner");
 
-// const inputName = document.querySelector("#creatureName");
+const inputName = document.querySelector("#creatureName");
 const buttonEditName = document.querySelector(".editName");
 const buttonSaveName = document.querySelector(".saveName");
 
 let tamagotchiName = document.querySelector(".tamagatchiName--greeting span");
-var inputName = document.getElementById("creatureName");
+
 inputName.onkeyup = function() {
   tamagotchiName.innerHTML = inputName.value;
 };
@@ -36,6 +36,7 @@ buttonSaveName.addEventListener("click", disableText);
 buttonEditName.addEventListener("click", enableText);
 
 let status = document.querySelector(".tamagotchiStatus");
+let statusp = document.querySelector(".tamagotchiStatus ");
 
 function Tamagotchi() {
   this.hunger = Math.floor(Math.random() * 10);
@@ -53,24 +54,49 @@ function Tamagotchi() {
       1
   );
 
-  let updateBladder = () => {
-    var statusText = document.createElement("p");
-    status.appendChild(statusText);
-    statusText.innerHTML +=
-      "Take me to the bathroom before I pee on your floor!";
+  let clearStatusTextbox = () => {
+    statusp.innerHTML = "clearthislater1";
   };
 
-  // this.bathroom = () => {
+  let updateStatusTextbox = () => {
+    clearStatusTextbox();
 
-  //   this.hygiene--;
-  //   this.bladder = 0;
-  //   levelHygiene.innerHTML = this.hygiene;
-  //   levelBladder.innerHTML = this.bladder;
-  // };
-
-  this.updateAllStatuses = () => {
     if (this.bladder >= 8) {
-      updateBladder();
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML +=
+        "Take me to the bathroom before I pee on your floor!";
+    }
+
+    if (this.hunger <= 3) {
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML += "Feed me, peasant!";
+    }
+
+    if (this.energy <= 3) {
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML += "Tuck me in or I'll haunt your dreams";
+    }
+
+    if (this.hygiene <= 3) {
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML += "I smell!  Bathe me";
+    }
+
+    if (this.intelligence <= 3) {
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML +=
+        "When I grow up, I want to be a principal or a caterpillar.";
+    }
+
+    if (this.happiness <= 5) {
+      var statusText = document.createElement("p");
+      status.appendChild(statusText);
+      statusText.innerHTML += "Dance for me, jester!";
     }
   };
 
@@ -81,18 +107,131 @@ function Tamagotchi() {
   levelHygiene.innerHTML = this.hygiene;
   levelIntelligence.innerHTML = this.intelligence;
 
+  let activityBathroom = () => {
+    this.hygiene--;
+    this.bladder = 0;
+    levelHygiene.innerHTML = this.hygiene;
+    levelBladder.innerHTML = this.bladder;
+  };
+
+  let activitySnack = () => {
+    this.hunger++;
+    this.bladder += 0.5;
+    levelHunger.innerHTML = this.hunger;
+    levelBladder.innerHTML = this.bladder;
+  };
+
+  let activityDinner = () => {
+    this.hunger = 10;
+    this.bladder += 4.5;
+    levelHunger.innerHTML = this.hunger;
+    levelBladder.innerHTML = this.bladder;
+  };
+
+  let activityShower = () => {
+    this.hygiene = 10;
+    levelHygiene.innerHTML = this.hygiene;
+  };
+
+  let activityTv = () => {
+    this.energy++;
+    this.hygiene--;
+    this.bladder--;
+    this.hunger--;
+    this.happiness += 2;
+    levelEnergy.innerHTML = this.energy;
+    levelHygiene.innerHTML = this.hygiene;
+    levelBladder.innerHTML = this.bladder;
+    levelHunger.innerHTML = this.hunger;
+    levelHappiness.innerHTML = this.happiness;
+  };
+
+  let activityNap = () => {
+    this.energy += 2;
+    this.hygiene -= 2;
+    this.bladder++;
+    this.hunger--;
+    levelEnergy.innerHTML = this.energy;
+    levelHygiene.innerHTML = this.hygiene;
+    levelBladder.innerHTML = this.bladder;
+    levelHunger.innerHTML = this.hunger;
+  };
+
+  let activityBed = () => {
+    this.energy += 10;
+    this.hygiene -= 4;
+    this.bladder += 5;
+    this.hunger -= 3;
+    levelEnergy.innerHTML = this.energy;
+    levelHygiene.innerHTML = this.hygiene;
+    levelBladder.innerHTML = this.bladder;
+    levelHunger.innerHTML = this.hunger;
+  };
+
+  let activityRead = () => {
+    this.intelligence += 3;
+    this.happiness++;
+    levelIntelligence.innerHTML = this.intelligence;
+    levelHappiness.innerHTML = this.happiness;
+  };
+
+  let activityWalk = () => {
+    this.energy -= 3;
+    this.happiness++;
+    this.hygiene -= 3;
+    this.hunger -= 2;
+    this.bladder += 2;
+    levelEnergy.innerHTML = this.energy;
+    levelHygiene.innerHTML = this.hygiene;
+    levelHappiness.innerHTML = this.happiness;
+    levelHunger.innerHTML = this.hunger;
+    levelBladder.innerHTML = this.bladder;
+  };
+
   buttonBathroom.addEventListener("click", () => {
-    this.bathroom, updateAllStatuses;
+    updateStatusTextbox();
+    activityBathroom();
   });
 
-  buttonSnacktime.addEventListener("click", this.feedSnack);
-  buttonDinner.addEventListener("click", this.feedDinner);
-  buttonNaptime.addEventListener("click", this.takeNap);
-  buttonBedtime.addEventListener("click", this.goToBed);
-  buttonWatchTv.addEventListener("click", this.watchTv);
-  buttonReadBook.addEventListener("click", this.readBook);
-  buttonShower.addEventListener("click", this.shower);
-  buttonWalk.addEventListener("click", this.walk);
+  buttonSnacktime.addEventListener("click", () => {
+    updateStatusTextbox();
+    activitySnack();
+  });
+
+  buttonDinner.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityDinner();
+  });
+
+  buttonShower.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityShower();
+  });
+
+  buttonWatchTv.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityTv();
+  });
+
+  buttonNaptime.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityNap();
+  });
+
+  buttonBedtime.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityBed();
+  });
+
+  buttonReadBook.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityRead();
+  });
+
+  buttonWalk.addEventListener("click", () => {
+    updateStatusTextbox();
+    activityWalk();
+  });
 }
 
 let currentStat = document.querySelectorAll(".currentLevel");
