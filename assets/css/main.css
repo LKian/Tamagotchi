@@ -404,7 +404,7 @@ template {
   border-color: #000e14;
 }
 
-.tamagatchiName--greeting span {
+.tamagotchiName--greeting span {
   text-transform: capitalize;
 }
 

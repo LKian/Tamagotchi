@@ -19,7 +19,7 @@ const inputName = document.querySelector("#creatureName");
 const buttonEditName = document.querySelector(".editName");
 const buttonSaveName = document.querySelector(".saveName");
 
-let tamagotchiName = document.querySelector(".tamagatchiName--greeting span");
+let tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
 
 inputName.onkeyup = function() {
   tamagotchiName.innerHTML = inputName.value;
@@ -36,7 +36,6 @@ buttonSaveName.addEventListener("click", disableText);
 buttonEditName.addEventListener("click", enableText);
 
 let status = document.querySelector(".tamagotchiStatus");
-let statusp = document.querySelector(".tamagotchiStatus ");
 
 function Tamagotchi() {
   this.hunger = Math.floor(Math.random() * 10);
@@ -55,12 +54,10 @@ function Tamagotchi() {
   );
 
   let clearStatusTextbox = () => {
-    statusp.innerHTML = "clearthislater1";
+    status.innerHTML = "clearthislater1";
   };
 
   let updateStatusTextbox = () => {
-    clearStatusTextbox();
-
     if (this.bladder >= 8) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
