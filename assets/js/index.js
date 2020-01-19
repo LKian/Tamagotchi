@@ -16,8 +16,8 @@ let buttonBedtime = document.querySelector(".controlButton.button--bedtime");
 let buttonDinner = document.querySelector(".controlButton.button--dinner");
 
 const inputName = document.querySelector("#creatureName");
-const buttonEditName = document.querySelector(".editName");
-const buttonSaveName = document.querySelector(".saveName");
+const buttonEditName = document.querySelector(".button--edit");
+const buttonSaveName = document.querySelector(".button--save");
 
 let tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
 
@@ -54,7 +54,7 @@ function Tamagotchi() {
   );
 
   let clearStatusTextbox = () => {
-    status.innerHTML = "clearthislater1";
+    status.innerHTML = "";
   };
 
   let updateStatusTextbox = () => {
@@ -186,48 +186,57 @@ function Tamagotchi() {
   };
 
   buttonBathroom.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityBathroom();
+    updateStatusTextbox();
   });
 
   buttonSnacktime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activitySnack();
+    updateStatusTextbox();
   });
 
   buttonDinner.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityDinner();
+    updateStatusTextbox();
   });
 
   buttonShower.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityShower();
+    updateStatusTextbox();
   });
 
   buttonWatchTv.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityTv();
+    updateStatusTextbox();
   });
 
   buttonNaptime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityNap();
+    updateStatusTextbox();
   });
 
   buttonBedtime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityBed();
+    updateStatusTextbox();
   });
 
   buttonReadBook.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityRead();
+    updateStatusTextbox();
   });
 
   buttonWalk.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityWalk();
+    updateStatusTextbox();
   });
 }
 

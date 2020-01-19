@@ -17,46 +17,58 @@
     <!-- body -->
     <div class="body">
       <!-- tamogotchi stats -->
-      <section class="section section-stats">
-        <div class="container containerStats">
+      <section class="section section-name">
+        <div class="container containerName">
           <div class="tamagotchiStatus"></div>
           <div class="tamagotchiName">
-            <h2 class="tamagotchiName--greeting">Meet <span></span></h2>
+            <h2 class="tamagotchiName--greeting">Meet...<span></span></h2>
             <input type="text" id="creatureName" value />
-
-            <button class="button editName">Edit Name</button>
-            <button class="button saveName">Save Name</button>
+            <div class="button-container">
+              <button class="button button--primary button--edit" type="button">
+                Edit Name
+              </button>
+              <button
+                class="button button--secondary button--save"
+                type="submit"
+              >
+                Save Name
+              </button>
+            </div>
           </div>
+        </div>
+      </section>
+      <section class="section section-stats">
+        <div class="container containerStats">
           <div class="tamagotchiTrait__container">
             <div class="tamagotchiTrait">
               <i class="fas fa-smile"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Happiness</h4>
+              <h4 class="tamagotchiTrait--title">happiness</h4>
               <p class="currentLevel currentLevel--happiness"></p>
             </div>
             <div class="tamagotchiTrait">
               <i class="fas fa-utensils"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Hunger</h4>
+              <h4 class="tamagotchiTrait--title">Hunger</h4>
               <p class="currentLevel currentLevel--hunger"></p>
             </div>
             <div class="tamagotchiTrait">
               <i class="fas fa-bed"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Energy</h4>
+              <h4 class="tamagotchiTrait--title">Energy</h4>
               <p class="currentLevel currentLevel--energy"></p>
             </div>
 
             <div class="tamagotchiTrait">
               <i class="fas fa-toilet"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Bladder</h4>
+              <h4 class="tamagotchiTrait--title">Bladder</h4>
               <p class="currentLevel currentLevel--bladder"></p>
             </div>
             <div class="tamagotchiTrait">
               <i class="fas fa-shower"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Hygiene</h4>
+              <h4 class="tamagotchiTrait--title">Hygiene</h4>
               <p class="currentLevel currentLevel--hygiene"></p>
             </div>
             <div class="tamagotchiTrait">
               <i class="fas fa-book"><hr /></i>
-              <h4 class="tamagotchiTrait__container--trait">Intelligence</h4>
+              <h4 class="tamagotchiTrait--title">Intelligence</h4>
               <p class="currentLevel currentLevel--intelligence"></p>
             </div>
           </div>
@@ -74,11 +86,11 @@
           >
 
           <a class="button button--primary controlButton button--snack"
-            ><span>Snacktime</span></a
+            ><span>snacktime</span></a
           >
 
           <a class="button button--primary controlButton button--bathroom"
-            ><span>Use bathroom</span></a
+            ><span>use bathroom</span></a
           >
 
           <a class="button button--primary controlButton button--shower"

@@ -351,11 +351,12 @@ template {
 }
 
 .button {
-  height: 40px;
+  height: 35px;
+  width: 50%;
   text-transform: capitalize;
   font-size: 1rem;
   display: flex;
-  margin: 0.25rem auto;
+  margin: 0.25rem 0;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -369,6 +370,11 @@ template {
   text-decoration: none;
   border-color: #00a2e0;
   background-color: #00a2e0;
+}
+@media (min-width: 551px) {
+  .button {
+    max-width: 200px;
+  }
 }
 
 .button--primary {
@@ -385,7 +391,7 @@ template {
 .button--secondary {
   background-color: #00a2e0;
   color: #eaf2ff;
-  border-color: #eaf2ff;
+  border-color: #00a2e0;
 }
 .button--secondary:hover, .button--secondary:active, .button--secondary:focus {
   background-color: #eaf2ff;
@@ -404,8 +410,43 @@ template {
   border-color: #000e14;
 }
 
+.containerName {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 551px) {
+  .containerName {
+    flex-direction: row;
+  }
+}
+
+.tamagotchiName--greeting {
+  font-weight: 300;
+}
+
 .tamagotchiName--greeting span {
   text-transform: capitalize;
+  font-weight: 700;
+}
+
+@media (min-width: 551px) {
+  .tamagotchiName {
+    flex-direction: column;
+    width: 48%;
+  }
+}
+
+#creatureName {
+  margin: 10px 0;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #bbb;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .section,
@@ -459,7 +500,7 @@ h3 {
 
 h2,
 h4 {
-  color: #00a2e0;
+  color: #000000;
 }
 
 i {
@@ -482,9 +523,9 @@ a:hover {
   width: 100%;
   margin-bottom: 20px;
 }
-@media (min-width: 801px) {
+@media (min-width: 551px) {
   .tamagotchiStatus {
-    flex: 1;
+    width: 48%;
   }
 }
 
@@ -509,25 +550,34 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
   flex: 0 48%;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 @media (min-width: 551px) {
   .tamagotchiTrait {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     flex: 0 32%;
   }
 }
 
-.currentLevel {
+.tamagotchiTrait--title {
+  text-transform: capitalize;
+}
+
+p.currentLevel {
   font-size: 20px;
-  padding: 10px;
   font-weight: 400;
 }
 
 .currentLevel.highlight {
   font-weight: 700;
+}
+
+.tamagotchiTrait hr {
+  background-color: #eaf2ff;
 }
 
 .section-controls::after {
