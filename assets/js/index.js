@@ -5,6 +5,10 @@ let levelBladder = document.querySelector(".currentLevel--bladder");
 let levelHygiene = document.querySelector(".currentLevel--hygiene");
 let levelIntelligence = document.querySelector(".currentLevel--intelligence");
 
+let level = document.querySelectorAll(".currentLevel");
+
+let currentStat = document.querySelectorAll(".currentLevel");
+
 let buttonWatchTv = document.querySelector(".controlButton.button--watchTv");
 let buttonReadBook = document.querySelector(".controlButton.button--readBook");
 let buttonSnacktime = document.querySelector(".controlButton.button--snack");
@@ -198,12 +202,26 @@ function Tamagotchi() {
     this.hygiene -= 3;
     this.hunger -= 2;
     this.bladder += 2;
+
     levelEnergy.innerHTML = this.energy;
-    levelHygiene.innerHTML = this.hygiene;
     levelHappiness.innerHTML = this.happiness;
+    levelHygiene.innerHTML = this.hygiene;
     levelHunger.innerHTML = this.hunger;
     levelBladder.innerHTML = this.bladder;
   };
+
+  // for (let i = 0; i < currentStat.length; i++) {
+  //   if (parseFloat(currentStat[i].innerHTML) <= 5) {
+  //     currentStat[i].innerHTML = "leah";
+  //     // currentStat[i].innerHTML = 0;
+  //   } else {
+  //     levelEnergy.innerHTML = this.energy;
+  //     levelHappiness.innerHTML = this.happiness;
+  //     levelHygiene.innerHTML = this.hygiene;
+  //     levelHunger.innerHTML = this.hunger;
+  //     levelBladder.innerHTML = this.bladder;
+  //   }
+  // }
 
   buttonBathroom.addEventListener("click", () => {
     clearStatusTextbox();
@@ -259,8 +277,6 @@ function Tamagotchi() {
     updateStatusTextbox();
   });
 }
-
-let currentStat = document.querySelectorAll(".currentLevel");
 
 function addHighlight() {
   for (let i = 0; i < currentStat.length; i++) {
