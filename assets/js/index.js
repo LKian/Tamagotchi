@@ -63,24 +63,36 @@ function Tamagotchi() {
       status.appendChild(statusText);
       statusText.innerHTML +=
         "Take me to the bathroom before I pee on your floor!";
+      levelBladder.classList.add("red");
+    } else {
+      levelBladder.classList.remove("red");
     }
 
     if (this.hunger <= 3) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
       statusText.innerHTML += "Feed me, peasant!";
+      levelHunger.classList.add("red");
+    } else {
+      levelHunger.classList.remove("red");
     }
 
     if (this.energy <= 3) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
       statusText.innerHTML += "Tuck me in or I'll haunt your dreams";
+      levelEnergy.classList.add("red");
+    } else {
+      levelEnergy.classList.remove("red");
     }
 
     if (this.hygiene <= 3) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
       statusText.innerHTML += "I smell!  Bathe me";
+      levelHygiene.classList.add("red");
+    } else {
+      levelHygiene.classList.remove("red");
     }
 
     if (this.intelligence <= 3) {
@@ -88,12 +100,18 @@ function Tamagotchi() {
       status.appendChild(statusText);
       statusText.innerHTML +=
         "When I grow up, I want to be a principal or a caterpillar.";
+      levelIntelligence.classList.add("red");
+    } else {
+      levelIntelligence.classList.remove("red");
     }
 
     if (this.happiness <= 5) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
       statusText.innerHTML += "Dance for me, jester!";
+      levelHappiness.classList.add("red");
+    } else {
+      levelHappiness.classList.remove("red");
     }
   };
 
@@ -134,11 +152,13 @@ function Tamagotchi() {
     this.energy++;
     this.hygiene--;
     this.bladder--;
+    this.intelligence--;
     this.hunger--;
     this.happiness += 2;
     levelEnergy.innerHTML = this.energy;
     levelHygiene.innerHTML = this.hygiene;
     levelBladder.innerHTML = this.bladder;
+    levelIntelligence.innerHTML = this.intelligence;
     levelHunger.innerHTML = this.hunger;
     levelHappiness.innerHTML = this.happiness;
   };
