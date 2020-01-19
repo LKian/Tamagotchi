@@ -16,10 +16,10 @@ let buttonBedtime = document.querySelector(".controlButton.button--bedtime");
 let buttonDinner = document.querySelector(".controlButton.button--dinner");
 
 const inputName = document.querySelector("#creatureName");
-const buttonEditName = document.querySelector(".editName");
-const buttonSaveName = document.querySelector(".saveName");
+const buttonEditName = document.querySelector(".button--edit");
+const buttonSaveName = document.querySelector(".button--save");
 
-let tamagotchiName = document.querySelector(".tamagatchiName--greeting span");
+let tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
 
 inputName.onkeyup = function() {
   tamagotchiName.innerHTML = inputName.value;
@@ -36,7 +36,6 @@ buttonSaveName.addEventListener("click", disableText);
 buttonEditName.addEventListener("click", enableText);
 
 let status = document.querySelector(".tamagotchiStatus");
-let statusp = document.querySelector(".tamagotchiStatus ");
 
 function Tamagotchi() {
   this.hunger = Math.floor(Math.random() * 10);
@@ -55,12 +54,10 @@ function Tamagotchi() {
   );
 
   let clearStatusTextbox = () => {
-    statusp.innerHTML = "clearthislater1";
+    status.innerHTML = "";
   };
 
   let updateStatusTextbox = () => {
-    clearStatusTextbox();
-
     if (this.bladder >= 8) {
       var statusText = document.createElement("p");
       status.appendChild(statusText);
@@ -189,48 +186,57 @@ function Tamagotchi() {
   };
 
   buttonBathroom.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityBathroom();
+    updateStatusTextbox();
   });
 
   buttonSnacktime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activitySnack();
+    updateStatusTextbox();
   });
 
   buttonDinner.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityDinner();
+    updateStatusTextbox();
   });
 
   buttonShower.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityShower();
+    updateStatusTextbox();
   });
 
   buttonWatchTv.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityTv();
+    updateStatusTextbox();
   });
 
   buttonNaptime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityNap();
+    updateStatusTextbox();
   });
 
   buttonBedtime.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityBed();
+    updateStatusTextbox();
   });
 
   buttonReadBook.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityRead();
+    updateStatusTextbox();
   });
 
   buttonWalk.addEventListener("click", () => {
-    updateStatusTextbox();
+    clearStatusTextbox();
     activityWalk();
+    updateStatusTextbox();
   });
 }
 

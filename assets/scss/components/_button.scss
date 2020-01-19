@@ -5,11 +5,12 @@
 @import "../utilities/variables";
 
 .button {
-  height: 40px;
+  height: 35px;
+  width: 50%;
   text-transform: capitalize;
   font-size: 1rem;
   display: flex;
-  margin: 0.25rem auto;
+  margin: 0.25rem 0;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -25,6 +26,10 @@
     text-decoration: none;
     border-color: $color-primary;
     background-color: $color-primary;
+  }
+
+  @media (min-width: 551px) {
+    max-width: 200px;
   }
 }
 
@@ -46,7 +51,7 @@
 .button--secondary {
   background-color: $color-primary;
   color: $color-secondary;
-  border-color: $color-secondary;
+  border-color: $color-primary;
 
   &:hover,
   &:active,
