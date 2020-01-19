@@ -580,6 +580,10 @@ p.currentLevel {
   background-color: #eaf2ff;
 }
 
+.red {
+  color: red;
+}
+
 .section-controls::after {
   content: "";
   flex: 0 1 48%;
