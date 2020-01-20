@@ -352,7 +352,7 @@ template {
 
 .button {
   height: 35px;
-  width: 50%;
+  width: 49%;
   text-transform: capitalize;
   font-size: 1rem;
   display: flex;
@@ -573,9 +573,45 @@ p.currentLevel {
 }
 
 .currentLevel.highlight {
-  font-weight: 700;
+  font-weight: 400;
+  -webkit-animation: flash linear 2s;
+  animation: flash linear 2s;
 }
 
+@-webkit-keyframes flash {
+  0% {
+    font-weight: 400;
+  }
+  25% {
+    font-weight: 700;
+  }
+  50% {
+    font-weight: 400;
+  }
+  75% {
+    font-weight: 700;
+  }
+  100% {
+    font-weight: 400;
+  }
+}
+@keyframes flash {
+  0% {
+    font-weight: 400;
+  }
+  25% {
+    font-weight: 700;
+  }
+  50% {
+    font-weight: 400;
+  }
+  75% {
+    font-weight: 700;
+  }
+  100% {
+    font-weight: 400;
+  }
+}
 .tamagotchiTrait hr {
   background-color: #eaf2ff;
 }
