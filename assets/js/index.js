@@ -1,29 +1,18 @@
-let levelHappiness = document.querySelector(".currentLevel--happiness");
-let levelHunger = document.querySelector(".currentLevel--hunger");
-let levelEnergy = document.querySelector(".currentLevel--energy");
-let levelBladder = document.querySelector(".currentLevel--bladder");
-let levelHygiene = document.querySelector(".currentLevel--hygiene");
-let levelIntelligence = document.querySelector(".currentLevel--intelligence");
+const levelHappiness = document.querySelector(".currentLevel--happiness");
+const levelHunger = document.querySelector(".currentLevel--hunger");
+const levelEnergy = document.querySelector(".currentLevel--energy");
+const levelBladder = document.querySelector(".currentLevel--bladder");
+const levelHygiene = document.querySelector(".currentLevel--hygiene");
+const levelIntelligence = document.querySelector(".currentLevel--intelligence");
 
-let level = document.querySelectorAll(".currentLevel");
-
-let currentStat = document.querySelectorAll(".currentLevel");
-
-let buttonWatchTv = document.querySelector(".controlButton.button--watchTv");
-let buttonReadBook = document.querySelector(".controlButton.button--readBook");
-let buttonSnacktime = document.querySelector(".controlButton.button--snack");
-let buttonBathroom = document.querySelector(".controlButton.button--bathroom");
-let buttonShower = document.querySelector(".controlButton.button--shower");
-let buttonWalk = document.querySelector(".controlButton.button--walk");
-let buttonNaptime = document.querySelector(".controlButton.button--naptime");
-let buttonBedtime = document.querySelector(".controlButton.button--bedtime");
-let buttonDinner = document.querySelector(".controlButton.button--dinner");
+const currentStat = document.querySelectorAll(".currentLevel");
+const controlButtons = document.querySelectorAll(".controlButton");
 
 const inputName = document.querySelector("#creatureName");
 const buttonEditName = document.querySelector(".button--edit");
 const buttonSaveName = document.querySelector(".button--save");
 
-let tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
+const tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
 
 inputName.onkeyup = function() {
   tamagotchiName.innerHTML = inputName.value;
@@ -67,9 +56,9 @@ function Tamagotchi() {
       status.appendChild(statusText);
       statusText.innerHTML +=
         "Take me to the bathroom before I pee on your floor!";
-      levelBladder.classList.add("red");
+      levelBladder.classList.add("red", "highlight");
     } else {
-      levelBladder.classList.remove("red");
+      levelBladder.classList.remove("red", "highlight");
     }
 
     if (this.hunger <= 3) {
@@ -126,171 +115,147 @@ function Tamagotchi() {
   levelHygiene.innerHTML = this.hygiene;
   levelIntelligence.innerHTML = this.intelligence;
 
-  let activityBathroom = () => {
+  const activityBathroom = () => {
     this.hygiene--;
     this.bladder = 0;
-    levelHygiene.innerHTML = this.hygiene;
-    levelBladder.innerHTML = this.bladder;
   };
 
-  let activitySnack = () => {
+  const activitySnack = () => {
     this.hunger++;
-    this.bladder += 0.5;
-    levelHunger.innerHTML = this.hunger;
-    levelBladder.innerHTML = this.bladder;
+    this.bladder += 1;
   };
 
-  let activityDinner = () => {
+  const activityDinner = () => {
     this.hunger = 10;
-    this.bladder += 4.5;
-    levelHunger.innerHTML = this.hunger;
-    levelBladder.innerHTML = this.bladder;
+    this.bladder += 5;
   };
 
-  let activityShower = () => {
+  const activityShower = () => {
     this.hygiene = 10;
-    levelHygiene.innerHTML = this.hygiene;
   };
 
-  let activityTv = () => {
+  const activityTv = () => {
     this.energy++;
     this.hygiene--;
     this.bladder--;
     this.intelligence--;
     this.hunger--;
     this.happiness += 2;
-    levelEnergy.innerHTML = this.energy;
-    levelHygiene.innerHTML = this.hygiene;
-    levelBladder.innerHTML = this.bladder;
-    levelIntelligence.innerHTML = this.intelligence;
-    levelHunger.innerHTML = this.hunger;
-    levelHappiness.innerHTML = this.happiness;
   };
 
-  let activityNap = () => {
+  const activityNap = () => {
     this.energy += 2;
     this.hygiene -= 2;
     this.bladder++;
     this.hunger--;
-    levelEnergy.innerHTML = this.energy;
-    levelHygiene.innerHTML = this.hygiene;
-    levelBladder.innerHTML = this.bladder;
-    levelHunger.innerHTML = this.hunger;
   };
 
-  let activityBed = () => {
+  const activityBed = () => {
     this.energy += 10;
     this.hygiene -= 4;
     this.bladder += 5;
     this.hunger -= 3;
-    levelEnergy.innerHTML = this.energy;
-    levelHygiene.innerHTML = this.hygiene;
-    levelBladder.innerHTML = this.bladder;
-    levelHunger.innerHTML = this.hunger;
   };
 
-  let activityRead = () => {
+  const activityRead = () => {
     this.intelligence += 3;
     this.happiness++;
-    levelIntelligence.innerHTML = this.intelligence;
-    levelHappiness.innerHTML = this.happiness;
   };
 
-  let activityWalk = () => {
+  const activityWalk = () => {
     this.energy -= 3;
     this.happiness++;
     this.hygiene -= 3;
     this.hunger -= 2;
     this.bladder += 2;
-
-    levelEnergy.innerHTML = this.energy;
-    levelHappiness.innerHTML = this.happiness;
-    levelHygiene.innerHTML = this.hygiene;
-    levelHunger.innerHTML = this.hunger;
-    levelBladder.innerHTML = this.bladder;
   };
 
-  // for (let i = 0; i < currentStat.length; i++) {
-  //   if (parseFloat(currentStat[i].innerHTML) <= 5) {
-  //     currentStat[i].innerHTML = "leah";
-  //     // currentStat[i].innerHTML = 0;
-  //   } else {
-  //     levelEnergy.innerHTML = this.energy;
-  //     levelHappiness.innerHTML = this.happiness;
-  //     levelHygiene.innerHTML = this.hygiene;
-  //     levelHunger.innerHTML = this.hunger;
-  //     levelBladder.innerHTML = this.bladder;
-  //   }
-  // }
+  const checkActivity = activity => {
+    switch (activity) {
+      case "watchTv":
+        return activityTv();
 
-  buttonBathroom.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityBathroom();
-    updateStatusTextbox();
-  });
+      case "readBook":
+        return activityRead();
 
-  buttonSnacktime.addEventListener("click", () => {
-    clearStatusTextbox();
-    activitySnack();
-    updateStatusTextbox();
-  });
+      case "snack":
+        return activitySnack();
 
-  buttonDinner.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityDinner();
-    updateStatusTextbox();
-  });
+      case "bathroom":
+        return activityBathroom();
 
-  buttonShower.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityShower();
-    updateStatusTextbox();
-  });
+      case "shower":
+        return activityShower();
 
-  buttonWatchTv.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityTv();
-    updateStatusTextbox();
-  });
+      case "walk":
+        return activityWalk();
 
-  buttonNaptime.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityNap();
-    updateStatusTextbox();
-  });
+      case "nap":
+        return activityNap();
 
-  buttonBedtime.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityBed();
-    updateStatusTextbox();
-  });
+      case "bed":
+        return activityBed();
 
-  buttonReadBook.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityRead();
-    updateStatusTextbox();
-  });
+      case "dinner":
+        return activityDinner();
+      default:
+        return;
+    }
+  };
 
-  buttonWalk.addEventListener("click", () => {
-    clearStatusTextbox();
-    activityWalk();
-    updateStatusTextbox();
-  });
-}
+  const checkLevelLimit = () => {
+    for (let i = 0; i < currentStat.length; i++) {
+      const type = currentStat[i].getAttribute("data-type");
 
-function addHighlight() {
-  for (let i = 0; i < currentStat.length; i++) {
-    currentStat[i].classList.add("highlight");
+      if (this[type] <= 0) {
+        this[type] = 0;
+      } else if (this[type] >= 10) {
+        this[type] = 10;
+      }
+    }
+  };
+
+  const updateLevels = () => {
+    levelHappiness.innerHTML = this.happiness;
+    levelHunger.innerHTML = this.hunger;
+    levelEnergy.innerHTML = this.energy;
+    levelBladder.innerHTML = this.bladder;
+    levelHygiene.innerHTML = this.hygiene;
+    levelIntelligence.innerHTML = this.intelligence;
+  };
+
+  const addClickEvent = controlButton => {
+    controlButton.addEventListener("click", e => {
+      const activity = e.currentTarget.getAttribute("data-activity");
+
+      clearStatusTextbox();
+      checkActivity(activity);
+      checkLevelLimit();
+      updateLevels();
+      updateStatusTextbox();
+    });
+  };
+
+  for (let i = 0; i < controlButtons.length; i++) {
+    addClickEvent(controlButtons[i]);
   }
+
+  updateStatusTextbox();
 }
 
-function removeHighlight() {
-  for (let i = 0; i < currentStat.length; i++) {
-    currentStat[i].classList.remove("highlight");
-  }
-}
+// function addHighlight() {
+//   for (let i = 0; i < currentStat.length; i++) {
+//     currentStat[i].classList.add("highlight");
+//   }
+// }
 
-const highlightTimerAdd = setTimeout(addHighlight, 200);
-const highlightTimerRemove = setTimeout(removeHighlight, 1000);
+// function removeHighlight() {
+//   for (let i = 0; i < currentStat.length; i++) {
+//     currentStat[i].classList.remove("highlight");
+//   }
+// }
+
+// const highlightTimerAdd = setTimeout(addHighlight, 200);
+// const highlightTimerRemove = setTimeout(removeHighlight, 1000);
 
 const leah = new Tamagotchi();
