@@ -7,14 +7,21 @@ const levelIntelligence = document.querySelector(".currentLevel--intelligence");
 
 const currentStat = document.querySelectorAll(".currentLevel");
 const controlButtons = document.querySelectorAll(".controlButton");
-
 const inputName = document.querySelector("#creatureName");
+
+const statusBladder = document.querySelector(".status-bladder");
+const statusHunger = document.querySelector(".status-hunger");
+const statusEnergy = document.querySelector(".status-energy");
+const statusHygiene = document.querySelector(".status-hygiene");
+const statusIntelligence = document.querySelector(".status-intelligence");
+const statusHappiness = document.querySelector(".status-happiness");
+
 const buttonEditName = document.querySelector(".button--edit");
 const buttonSaveName = document.querySelector(".button--save");
 
 const tamagotchiName = document.querySelector(".tamagotchiName--greeting span");
 
-inputName.onkeyup = function() {
+inputName.onkeyup = function () {
   tamagotchiName.innerHTML = inputName.value;
 };
 
@@ -42,71 +49,61 @@ function Tamagotchi() {
       (10 - this.bladder) +
       this.hygiene +
       this.intelligence) /
-      currentStat.length -
-      1
+    currentStat.length -
+    1
   );
-
-  let clearStatusTextbox = () => {
-    status.innerHTML = "";
-  };
 
   let updateStatusTextbox = () => {
     if (this.bladder >= 8) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML +=
-        "Take me to the bathroom before I pee on your floor!";
-      levelBladder.classList.add("red", "highlight");
+      statusBladder.classList.add("show-status");
+      levelBladder.classList.add("warning", "highlight");
     } else {
-      levelBladder.classList.remove("red", "highlight");
+      statusBladder.classList.remove("show-status");
+      levelBladder.classList.remove("warning", "highlight");
     }
 
     if (this.hunger <= 3) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML += "Feed me, peasant!";
-      levelHunger.classList.add("red");
+      statusBladder.classList.add("show-status");
+      levelHunger.classList.add("warning");
     } else {
-      levelHunger.classList.remove("red");
+      statusHunger.classList.remove("show-status");
+      levelHunger.classList.remove("warning");
     }
 
     if (this.energy <= 3) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML += "Tuck me in or I'll haunt your dreams";
-      levelEnergy.classList.add("red");
+      statusEnergy.classList.add("show-status");
+      levelEnergy.classList.add("warning");
     } else {
-      levelEnergy.classList.remove("red");
+      statusEnergy.classList.remove("show-status");
+      levelEnergy.classList.remove("warning");
     }
 
     if (this.hygiene <= 3) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML += "I smell!  Bathe me";
-      levelHygiene.classList.add("red");
+      statusHygiene.classList.add("show-status");
+      levelHygiene.classList.add("warning");
     } else {
-      levelHygiene.classList.remove("red");
+      statusHygiene.classList.remove("show-status");
+      levelHygiene.classList.remove("warning");
     }
 
     if (this.intelligence <= 3) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML +=
-        "When I grow up, I want to be a principal or a caterpillar.";
-      levelIntelligence.classList.add("red");
+      statusIntelligence.classList.add("show-status");
+      levelIntelligence.classList.add("warning");
     } else {
-      levelIntelligence.classList.remove("red");
+      statusIntelligence.classList.remove("show-status");
+      levelIntelligence.classList.remove("warning");
     }
 
     if (this.happiness <= 5) {
-      var statusText = document.createElement("p");
-      status.appendChild(statusText);
-      statusText.innerHTML += "Dance for me, jester!";
-      levelHappiness.classList.add("red");
+      console.log("less than 5")
+      statusHappiness.classList.add("show-status");
+      levelHappiness.classList.add("warning");
     } else {
-      levelHappiness.classList.remove("red");
+      statusHappiness.classList.remove("show-status");
+      levelHappiness.classList.remove("warning");
     }
   };
+
 
   levelHappiness.innerHTML = this.happiness;
   levelHunger.innerHTML = this.hunger;
@@ -227,8 +224,6 @@ function Tamagotchi() {
   const addClickEvent = controlButton => {
     controlButton.addEventListener("click", e => {
       const activity = e.currentTarget.getAttribute("data-activity");
-
-      clearStatusTextbox();
       checkActivity(activity);
       checkLevelLimit();
       updateLevels();

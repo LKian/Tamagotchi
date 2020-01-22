@@ -533,6 +533,14 @@ a:hover {
   font-family: monospace;
 }
 
+.status-text {
+  display: none;
+}
+
+.show-status {
+  display: block;
+}
+
 .containerStats {
   display: flex;
   flex-wrap: wrap;
@@ -616,7 +624,7 @@ p.currentLevel {
   background-color: #eaf2ff;
 }
 
-.red {
+.warning {
   color: red;
 }
 

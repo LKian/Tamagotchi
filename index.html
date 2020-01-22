@@ -1,237 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <title>Tamagotchi</title>
-  </head>
-  <body>
-    <!-- body -->
-    <div class="body">
-      <!-- tamogotchi stats -->
-      <section class="section section-name">
-        <div class="container containerName">
-          <div class="tamagotchiStatus"></div>
-          <div class="tamagotchiName">
-            <h2 class="tamagotchiName--greeting">Meet...<span></span></h2>
-            <input
-              type="text"
-              id="creatureName"
-              value
-              placeholder="Type your pet's name"
-            />
-            <div class="button-container">
-              <button class="button button--primary button--edit" type="button">
-                Edit Name
-              </button>
-              <button
-                class="button button--secondary button--save"
-                type="submit"
-              >
-                Save Name
-              </button>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <title>Tamagotchi</title>
+</head>
+
+<body>
+  <!-- body -->
+  <div class="body">
+    <!-- tamogotchi stats -->
+    <section class="section section-name">
+      <div class="container containerName">
+        <div class="tamagotchiStatus">
+          <p class="status-text status-bladder" data-status="bladder">
+            Take me to the bathroom before I pee on your floor!
+          </p>
+          <p class="status-text status-hunger" data-status="hunger">
+            Feed me, peasant!
+          </p>
+          <p class="status-text status-energy" data-status="energy">
+            Tuck me in or I'll haunt your dreams
+          </p>
+          <p class="status-text status-hygiene" data-status="hygiene">
+            I smell! Bathe me
+          </p>
+          <p class="status-text status-intelligence" data-status="intelligence">
+            When I grow up, I want to be a principal or a caterpillar.
+          </p>
+          <p class="status-text status-happiness" data-status="happiness">
+            Dance for me, jester!
+          </p>
         </div>
-      </section>
-      <section class="section section-stats">
-        <div class="container containerStats">
-          <div class="tamagotchiTrait__container">
-            <div class="tamagotchiTrait">
-              <i class="fas fa-smile"><hr /></i>
-              <h4 class="tamagotchiTrait--title">happiness</h4>
-              <p
-                class="currentLevel currentLevel--happiness"
-                data-type="happiness"
-              ></p>
-            </div>
-            <div class="tamagotchiTrait">
-              <i class="fas fa-utensils"><hr /></i>
-              <h4 class="tamagotchiTrait--title">Hunger</h4>
-              <p
-                class="currentLevel currentLevel--hunger"
-                data-type="hunger"
-              ></p>
-            </div>
-            <div class="tamagotchiTrait">
-              <i class="fas fa-bed"><hr /></i>
-              <h4 class="tamagotchiTrait--title">Energy</h4>
-              <p
-                class="currentLevel currentLevel--energy"
-                data-type="energy"
-              ></p>
-            </div>
-
-            <div class="tamagotchiTrait">
-              <i class="fas fa-toilet"><hr /></i>
-              <h4 class="tamagotchiTrait--title">Bladder</h4>
-              <p
-                class="currentLevel currentLevel--bladder"
-                data-type="bladder"
-              ></p>
-            </div>
-            <div class="tamagotchiTrait">
-              <i class="fas fa-shower"><hr /></i>
-              <h4 class="tamagotchiTrait--title">Hygiene</h4>
-              <p
-                class="currentLevel currentLevel--hygiene"
-                data-type="hygiene"
-              ></p>
-            </div>
-            <div class="tamagotchiTrait">
-              <i class="fas fa-book"><hr /></i>
-              <h4 class="tamagotchiTrait--title">Intelligence</h4>
-              <p
-                class="currentLevel currentLevel--intelligence"
-                data-type="intelligence"
-              ></p>
-            </div>
+        <div class="tamagotchiName">
+          <h2 class="tamagotchiName--greeting">Meet...<span></span></h2>
+          <input type="text" id="creatureName" value placeholder="Type your pet's name" />
+          <div class="button-container">
+            <button class="button button--primary button--edit" type="button">
+              Edit Name
+            </button>
+            <button class="button button--secondary button--save" type="submit">
+              Save Name
+            </button>
           </div>
-        </div>
-      </section>
-
-      <!-- tamagotchi controls -->
-      <section class="section section-controls">
-        <div class="container containerStats">
-          <a
-            class="button button--primary controlButton button--watchTv"
-            data-activity="watchTv"
-            ><span>Watch TV</span></a
-          >
-          <a
-            class="button button--primary controlButton button--readBook"
-            data-activity="readBook"
-            ><span>Read a book</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--snack"
-            data-activity="snack"
-            ><span>snacktime</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--bathroom"
-            data-activity="bathroom"
-            ><span>use bathroom</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--shower"
-            data-activity="shower"
-            ><span>Take a shower</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--walk"
-            data-activity="walk"
-            ><span>Go for a walk</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--naptime"
-            data-activity="nap"
-            ><span>Naptime</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--bedtime"
-            data-activity="bed"
-            ><span>Go to bed</span></a
-          >
-
-          <a
-            class="button button--primary controlButton button--dinner"
-            data-activity="dinner"
-            ><span>Have dinner</span></a
-          >
-        </div>
-      </section>
-    </div>
-
-    <!-- footer -->
-    <footer class="footer">
-      <div class="container footer-container ">
-        <div class="footer-left">
-          <div class="company-branding">
-            <a
-              class="icon icon-skull"
-              href="https://leahkahwadjian.com/"
-              target="_blank"
-              ><i class="fas fa-skull"></i>
-              <h5 class="company-name">LK</h5></a
-            >
-          </div>
-          <div class="footer-copyright">
-            <small>
-              &copy; 2020. All Rights Reserved |
-              <span
-                ><a href="https://leahkahwadjian.com" target="_blank"
-                  >LK Site</a
-                >
-              </span>
-            </small>
-          </div>
-        </div>
-        <div class="footer-right">
-          <ul class="footer-menu">
-            <li class="footer-link">
-              <a href="##">Link</a>
-            </li>
-            <li class="footer-link">
-              <a href="##">Link</a>
-            </li>
-            <li class="footer-link">
-              <a href="##">Link</a>
-            </li>
-          </ul>
-          <ul class="social-media-container">
-            <li class="social-media-link">
-              <a
-                class="icon icon-code"
-                href="https://leahkahwadjian.com"
-                target="_blank"
-                ><i class="fas fa-code"></i>
-              </a>
-            </li>
-            <li class="social-media-link">
-              <a
-                class="icon icon-github"
-                href="https://github.com/LKian/"
-                target="_blank"
-                ><i class="fab fa-github"></i>
-              </a>
-            </li>
-            <li class="social-media-link">
-              <a
-                class="icon icon-instagram"
-                href="https://instagram.com"
-                target="_blank"
-                ><i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li class="social-media-link">
-              <a
-                class="icon icon-envelope-o"
-                href="mailto:info@leahkahwadjian.com?Subject=Hello%20from%20LK%20Website"
-                target="_blank"
-              >
-                <i class="far fa-envelope"></i>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
-    </footer>
+    </section>
+    <section class="section section-stats">
+      <div class="container containerStats">
+        <div class="tamagotchiTrait__container">
+          <div class="tamagotchiTrait">
+            <i class="fas fa-smile">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">happiness</h4>
+            <p class="currentLevel currentLevel--happiness" data-type="happiness"></p>
+          </div>
+          <div class="tamagotchiTrait">
+            <i class="fas fa-utensils">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">Hunger</h4>
+            <p class="currentLevel currentLevel--hunger" data-type="hunger"></p>
+          </div>
+          <div class="tamagotchiTrait">
+            <i class="fas fa-bed">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">Energy</h4>
+            <p class="currentLevel currentLevel--energy" data-type="energy"></p>
+          </div>
 
-    <script type="text/javascript" src="./assets/js/index.js"></script>
-  </body>
+          <div class="tamagotchiTrait">
+            <i class="fas fa-toilet">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">Bladder</h4>
+            <p class="currentLevel currentLevel--bladder" data-type="bladder"></p>
+          </div>
+          <div class="tamagotchiTrait">
+            <i class="fas fa-shower">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">Hygiene</h4>
+            <p class="currentLevel currentLevel--hygiene" data-type="hygiene"></p>
+          </div>
+          <div class="tamagotchiTrait">
+            <i class="fas fa-book">
+              <hr /></i>
+            <h4 class="tamagotchiTrait--title">Intelligence</h4>
+            <p class="currentLevel currentLevel--intelligence" data-type="intelligence"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tamagotchi controls -->
+    <section class="section section-controls">
+      <div class="container containerStats">
+        <a class="button button--primary controlButton button--watchTv" data-activity="watchTv"><span>Watch
+            TV</span></a>
+        <a class="button button--primary controlButton button--readBook" data-activity="readBook"><span>Read a
+            book</span></a>
+
+        <a class="button button--primary controlButton button--snack" data-activity="snack"><span>snacktime</span></a>
+
+        <a class="button button--primary controlButton button--bathroom" data-activity="bathroom"><span>use
+            bathroom</span></a>
+
+        <a class="button button--primary controlButton button--shower" data-activity="shower"><span>Take a
+            shower</span></a>
+
+        <a class="button button--primary controlButton button--walk" data-activity="walk"><span>Go for a walk</span></a>
+
+        <a class="button button--primary controlButton button--naptime" data-activity="nap"><span>Naptime</span></a>
+
+        <a class="button button--primary controlButton button--bedtime" data-activity="bed"><span>Go to bed</span></a>
+
+        <a class="button button--primary controlButton button--dinner" data-activity="dinner"><span>Have
+            dinner</span></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container footer-container ">
+      <div class="footer-left">
+        <div class="company-branding">
+          <a class="icon icon-skull" href="https://leahkahwadjian.com/" target="_blank"><i class="fas fa-skull"></i>
+            <h5 class="company-name">LK</h5>
+          </a>
+        </div>
+        <div class="footer-copyright">
+          <small>
+            &copy; 2020. All Rights Reserved |
+            <span><a href="https://leahkahwadjian.com" target="_blank">LK Site</a>
+            </span>
+          </small>
+        </div>
+      </div>
+      <div class="footer-right">
+        <ul class="footer-menu">
+          <li class="footer-link">
+            <a href="##">Link</a>
+          </li>
+          <li class="footer-link">
+            <a href="##">Link</a>
+          </li>
+          <li class="footer-link">
+            <a href="##">Link</a>
+          </li>
+        </ul>
+        <ul class="social-media-container">
+          <li class="social-media-link">
+            <a class="icon icon-code" href="https://leahkahwadjian.com" target="_blank"><i class="fas fa-code"></i>
+            </a>
+          </li>
+          <li class="social-media-link">
+            <a class="icon icon-github" href="https://github.com/LKian/" target="_blank"><i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li class="social-media-link">
+            <a class="icon icon-instagram" href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="social-media-link">
+            <a class="icon icon-envelope-o" href="mailto:info@leahkahwadjian.com?Subject=Hello%20from%20LK%20Website"
+              target="_blank">
+              <i class="far fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="./assets/js/index.js"></script>
+</body>
+
 </html>
