@@ -95,7 +95,6 @@ function Tamagotchi() {
     }
 
     if (this.happiness <= 5) {
-      console.log("less than 5")
       statusHappiness.classList.add("show-status");
       levelHappiness.classList.add("warning");
     } else {
@@ -104,13 +103,15 @@ function Tamagotchi() {
     }
   };
 
-
   levelHappiness.innerHTML = this.happiness;
   levelHunger.innerHTML = this.hunger;
   levelEnergy.innerHTML = this.energy;
   levelBladder.innerHTML = this.bladder;
   levelHygiene.innerHTML = this.hygiene;
   levelIntelligence.innerHTML = this.intelligence;
+
+
+
 
   const activityBathroom = () => {
     this.hygiene--;
